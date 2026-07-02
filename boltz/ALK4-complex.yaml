@@ -1,0 +1,14 @@
+version: 1
+sequences:
+  # ALK4 / ACVR1B ECD (type I receptor, the one under study) — UniProt P36896 aa 32-109, exact match
+  - protein:
+      id: [A, B]
+      sequence: LLCACTSCLQANYTCETDGACMVSIFNLDGMEHHVRTCIPKVELVPAGKPFYCLSSEDLRNTHCCYTDYCNRIDLRVP
+  # Activin A / INHBA mature chain (ligand) — UniProt P08476 aa 311-426, exact match
+  - protein:
+      id: [C, D]
+      sequence: GLECDGKVNICCKKQFFVSFKDIGWNDWIIAPSGYHANYCEGECPSHIAGTSGSSLSFHSTVINHYRMRGHSPFANLKSCCVPTKLRPMSMLYYDDGQNIIKKDIQNMIVEECGCS
+  # ACVR2B ECD (type II receptor / co-receptor) — UniProt Q13705 aa 23-120, exact match
+  - protein:
+      id: [E, F]
+      sequence: EAETRECIYYNANWELERTNQSGLERCEGEQDKRLHCYASWRNSSGTIELVKKGCWLDDFNCYDRQECVATEENPQVYFCCCEGNFCNERFTHLPEAG

@@ -1,0 +1,38 @@
+<ROSETTASCRIPTS> 
+	<SCOREFXNS> 
+		<ScoreFunction name="r15" weights="ref2015" /> 
+	</SCOREFXNS> 
+	<TASKOPERATIONS> 
+		<InitializeFromCommandline name="ifcl"/> 
+		<RestrictToRepacking name="rtr" /> Does not Design, but repacks residues
+		Restrict to residues within a distance and vector cutoff of the protein-protein interface 
+		chain1_num="1,2" chain2_num="3,4" 
+		<RestrictToInterfaceVector name="rtiv" chain1_num="1" chain2_num="2" CB_dist_cutoff="10.0" nearby_atom_cutoff="5.5" vector_angle_cutoff="75" vector_dist_cutoff="9.0" /> 
+		Fix residues known experimentally to be critical in interaction 
+		<PreventResiduesFromRepacking name="prfrp" residues="" /> 
+	</TASKOPERATIONS>
+	<FILTERS> 
+	</FILTERS> 
+	<MOVERS> 
+		MINIMIZATION MOVERS Single cycle of FastRelax to minimize backbone of docking partners at interface
+		<FastRelax name="minimize_interface" scorefxn="r15" repeats="1" task_operations="ifcl,rtr,rtiv,prfrp" />
+		DOCKING MOVERS
+		<Docking name="dock_low" score_low="score_docking_low" score_high="r15" fullatom="0" local_refine="0" optimize_fold_tree="1" conserve_foldtree="0" ignore_default_docking_task="0" design="0" task_operations="ifcl,prfrp" jumps="1"/>
+		<Docking name="dock_high" score_low="score_docking_low" score_high="r15" fullatom="1" local_refine="1" optimize_fold_tree="1" conserve_foldtree="0" design="0" task_operations="ifcl,prfrp" jumps="1"/>
+
+		<SaveAndRetrieveSidechains name="srsc" allsc="0" /> Speeds the move from centroid to full atom mode
+		<Prepack name="ppk" jump_number="1" task_operations="ifcl" /> jump number 0 will not move the proteins away from each other... possibly use "@flag_ensemble_docking" and @flag_ensemble_prepack
+	</MOVERS>
+	<APPLY_TO_POSE>
+	</APPLY_TO_POSE>
+	<PROTOCOLS>
+		Run docking protocol w/o prepacking
+		Add mover="ppk"/>
+		<Add mover="dock_low"/>
+		<Add mover="srsc" />
+		<Add mover="dock_high" />
+		Minimize interface
+		<Add mover="minimize_interface" />
+	</PROTOCOLS>
+	<OUTPUT scorefxn="r15" />
+</ROSETTASCRIPTS>
