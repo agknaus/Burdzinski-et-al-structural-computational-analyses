@@ -41,7 +41,7 @@ Example for a six-chain ALK2–receptor complex:
 # 1. Predict
 conda activate boltz-2
 boltz predict scripts/boltz/ALK2-complex.yaml --use_msa_server \
-  --recycling_steps 3 --sampling_steps 200 --diffusion_samples 1
+  --recycling_steps 3 --sampling_steps 200 --diffusion_samples 5
 # → boltz_results_ALK2-complex/predictions/ALK2-complex/ALK2-complex_model_0.cif
 
 # 2. Relax
