@@ -1,4 +1,4 @@
-# Activin–receptor redocking
+# Activin–receptor redocking [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21415539.svg)](https://doi.org/10.5281/zenodo.21415539)
 
 Boltz structure prediction → Rosetta constrained relax → Rosetta global docking.
 
@@ -90,5 +90,4 @@ scripts/
     ├── Docking.xml      # global docking protocol (ref2015)
     └── relax_cst.xml    # constrained relax (ref2015_cst)
 ```
-[![DOI](https://zenodo.org/badge/1287238490.svg)](https://doi.org/10.5281/zenodo.21415539)
 
