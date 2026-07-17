@@ -90,4 +90,5 @@ scripts/
     ├── Docking.xml      # global docking protocol (ref2015)
     └── relax_cst.xml    # constrained relax (ref2015_cst)
 ```
+[![DOI](https://zenodo.org/badge/1287238490.svg)](https://doi.org/10.5281/zenodo.21415539)
 
